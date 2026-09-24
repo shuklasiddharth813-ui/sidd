@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rare Reserve — Premium Delivery Marketplace</title>
+<style>
+:root{--bg:#0b0b0d;--panel:#151518;--gold:#d6b56a;--gold2:#f0d99a;--text:#f7f3ea;--muted:#aaa6a0;--line:#2a2928}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text)}
+a{color:inherit;text-decoration:none}.nav{position:sticky;top:0;z-index:10;background:rgba(11,11,13,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.navin{max-width:1180px;margin:auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between}.logo{font-family:Georgia,serif;font-size:25px;letter-spacing:1px;color:var(--gold2)}
+.links{display:flex;gap:28px;color:#ddd;font-size:14px}.links a:hover{color:var(--gold2)}
+.btn{display:inline-block;padding:12px 18px;border:1px solid var(--gold);border-radius:8px;color:#17130b;background:var(--gold);font-weight:700;cursor:pointer}
+.hero{min-height:650px;display:grid;place-items:center;text-align:center;padding:80px 24px;background:radial-gradient(circle at 50% 15%,#3a2b16 0,#16120c 22%,transparent 46%),linear-gradient(135deg,#0b0b0d,#14110c)}
+.eyebrow{color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-size:12px;font-weight:700}.hero h1{font:clamp(52px,8vw,92px) Georgia,serif;margin:18px 0 14px}.hero p{max-width:690px;margin:auto;color:#c4c0ba;font-size:18px;line-height:1.7}.hero-actions{margin-top:32px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}.ghost{border:1px solid #5b554a;color:#eee;background:transparent}
+.section{max-width:1180px;margin:auto;padding:82px 24px}.title{text-align:center;font:42px Georgia,serif;margin:0 0 12px}.sub{text-align:center;color:var(--muted);max-width:680px;margin:0 auto 42px;line-height:1.6}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.step,.card,.feature,.faq{background:var(--panel);border:1px solid var(--line);border-radius:16px}.step{padding:26px}.num{color:var(--gold);font-size:13px;font-weight:700}.step h3{margin:12px 0 8px}.step p{color:var(--muted);line-height:1.6;font-size:14px}
+.filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}.filter{padding:9px 15px;border:1px solid var(--line);border-radius:999px;background:#111;color:#ccc;cursor:pointer}.filter.active{border-color:var(--gold);color:var(--gold2)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{overflow:hidden}.pic{height:240px;background:#f4f1e9;display:grid;place-items:center}.pic img{max-height:220px;max-width:88%;object-fit:contain}.body{padding:18px}.cat{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}.body h3{margin:8px 0 10px;font-size:17px;min-height:42px}.body p{font-size:13px;color:var(--muted);line-height:1.5}.demo{display:block;width:100%;margin-top:14px;text-align:center;padding:10px;border:1px solid #4b463c;border-radius:8px;color:#d8d2c7;font-size:13px}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.feature{padding:28px}.icon{font-size:28px;color:var(--gold)}.feature h3{margin:14px 0 8px}.feature p{color:var(--muted);line-height:1.6}
+.track{background:linear-gradient(135deg,#18140d,#111);border:1px solid #3c3322;border-radius:20px;padding:34px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}.track h2{font:35px Georgia,serif}.track p{color:var(--muted);line-height:1.7}.status{border:1px solid #3a352d;border-radius:14px;padding:22px;background:#0e0e10}.bar{height:5px;background:#3c382f;border-radius:99px;margin:18px 0}.bar span{display:block;width:70%;height:100%;background:var(--gold);border-radius:99px}.status small{color:#a7a198}
+.faq{padding:25px}.faq details{border-bottom:1px solid var(--line);padding:16px 0}.faq details:last-child{border:0}.faq summary{cursor:pointer;font-weight:700}.faq p{color:var(--muted);line-height:1.6}
+footer{border-top:1px solid var(--line);padding:45px 24px;color:#8e8a84;text-align:center;font-size:13px}.gold{color:var(--gold)}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;place-items:center;z-index:30;padding:20px}.modal.show{display:grid}.modalbox{max-width:460px;background:#171614;border:1px solid #55472d;border-radius:18px;padding:32px;text-align:center}.modalbox h2{font:32px Georgia,serif}.modalbox p{color:#b6b0a5;line-height:1.6}.checks{display:flex;gap:10px;align-items:flex-start;text-align:left;font-size:13px;color:#ccc;margin:20px 0}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.flow{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:1fr}.track{grid-template-columns:1fr}.links{display:none}}
+@media(max-width:560px){.grid,.flow{grid-template-columns:1fr}.hero{min-height:590px}.section{padding:60px 18px}.title{font-size:34px}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="navin">
+<a class="logo" href="#">Rare Reserve</a>
+<nav class="links"><a href="#how">How it works</a><a href="#collection">Collection</a><a href="#network">Partner network</a><a href="#faq">FAQ</a></nav>
+<button class="btn" onclick="openGate()">Age Check</button>
+</div></header>
+
+<section class="hero">
+<div>
+<div class="eyebrow">Licensed-shop marketplace concept</div>
+<h1>Rare Reserve</h1>
+<p>Discover premium bottles through a connected network of licensed local shops. No virtual store. No warehouse. We connect the customer, partner shop and delivery partner in one simple flow.</p>
+<div class="hero-actions"><a class="btn" href="#collection">Explore Collection</a><button class="btn ghost" onclick="openGate()">View Age Verification</button></div>
+</div>
+</section>
+
+<section class="section" id="how">
+<h2 class="title">How Rare Reserve Works</h2><p class="sub">A marketplace model designed around licensed partner shops rather than maintaining virtual inventory.</p>
+<div class="flow">
+<div class="step"><span class="num">01 / VERIFY</span><h3>Age verification</h3><p>Demo concept for confirming legal drinking age before an order flow can continue. Real PAN data should never be stored in this demo.</p></div>
+<div class="step"><span class="num">02 / DISCOVER</span><h3>Choose a bottle</h3><p>Browse a curated catalog and request availability from nearby licensed partner shops.</p></div>
+<div class="step"><span class="num">03 / CONNECT</span><h3>Partner shop confirms</h3><p>The platform routes the request to a participating licensed retailer that holds the relevant stock.</p></div>
+<div class="step"><span class="num">04 / DELIVER</span><h3>Delivery partner</h3><p>A delivery partner is assigned according to applicable local rules and the shop's fulfillment process.</p></div>
+</div>
+</section>
+
+<section class="section" id="collection">
+<h2 class="title">The Rare Collection</h2><p class="sub">Premium products shown for demonstration of the catalog experience. Availability and lawful sale depend on location and licensing.</p>
+<div class="filters">
+<button class="filter active" data-cat="all">All</button><button class="filter" data-cat="Beer">Beer</button><button class="filter" data-cat="Vodka">Vodka</button><button class="filter" data-cat="Whiskey">Whiskey</button><button class="filter" data-cat="Gin">Gin</button>
+</div>
+<div class="grid">
+<div class="card product" data-cat="Beer"><div class="pic"><img src="https://images.unsplash.com/photo-1608270586620-248524c67de9?auto=format&fit=crop&w=700&q=80" alt="Beer bottle and glass"></div><div class="body"><div class="cat">Beer</div><h3>Budweiser Magnum</h3><p>Catalog item · Partner-shop availability concept</p><span class="demo">Demo product card</span></div></div>
+<div class="card product" data-cat="Beer"><div class="pic"><img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=700&q=80" alt="Beer bottles"></div><div class="body"><div class="cat">Beer</div><h3>Corona Extra</h3><p>Catalog item · Partner-shop availability concept</p><span class="demo">Demo product card</span></div></div>
+<div class="card product" data-cat="Vodka"><div class="pic"><img src="https://images.unsplash.com/photo-1582106245687-cbb466a9f07f?auto=format&fit=crop&w=700&q=80" alt="Vodka bottle"></div><div class="body"><div class="cat">Vodka</div><h3>Smirnoff Minty Jamun</h3><p>Catalog item · Partner-shop availability concept</p><span class="demo">Demo product card</span></div></div>
+<div class="card product" data-cat="Vodka"><div class="pic"><img src="https://images.unsplash.com/photo-1614313511387-1436a4480ebb?auto=format&fit=crop&w=700&q=80" alt="Premium vodka bottle"></div><div class="body"><div class="cat">Vodka</div><h3>Grey Goose Vodka</h3><p>Catalog item · Partner-shop availability concept</p><span class="demo">Demo product card</span></div></div>
+<div class="card product" data-cat="Whiskey"><div class="pic"><img src="https://images.unsplash.com/photo-1527281400683-1aae777175f8?auto=format&fit=crop&w=700&q=80" alt="Whiskey glass and bottle"></div><div class="body"><div class="cat">Whiskey</div><h3>Johnnie Walker Black Label Ghost &amp; Rare</h3><p>Catalog item · Partner-shop availability concept</p><span class="demo">Demo product card</span></div></div>
+<div class="card product" data-cat="Whiskey"><div class="pic"><img src="https://images.unsplash.com/photo-1569529465841-dfecdab7503b?auto=format&fit=crop&w=700&q=80" alt="Whiskey bottle"></div><div class="body"><div class="cat">Whiskey</div><h3>Chivas Xx Ultis</h3><p>Catalog item · Partner-shop availability concept</p><span class="demo">Demo product card</span></div></div>
+<div class="card product" data-cat="Whiskey"><div class="pic"><img src="https://images.unsplash.com/photo-1608885898957-a5594d6a4f4d?auto=format&fit=crop&w=700&q=80" alt="Whiskey bottle"></div><div class="body"><div class="cat">Whiskey</div><h3>Jack Daniel's Single Barrel</h3><p>Catalog item · Partner-shop availability concept</p><span class="demo">Demo product card</span></div></div>
+<div class="card product" data-cat="Gin"><div class="pic"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=700&q=80" alt="Gin cocktail"></div><div class="body"><div class="cat">Gin</div><h3>Cherrapunji Easter Craft Gin</h3><p>Catalog item · Partner-shop availability concept</p><span class="demo">Demo product card</span></div></div>
+<div class="card product" data-cat="Gin"><div class="pic"><img src="https://images.unsplash.com/photo-1551538827-9c037cb4f32a?auto=format&fit=crop&w=700&q=80" alt="Gin and tonic"></div><div class="body"><div class="cat">Gin</div><h3>Bombay Sapphire Limited Edition</h3><p>Catalog item · Partner-shop availability concept</p><span class="demo">Demo product card</span></div></div>
+</div>
+</section>
+
+<section class="section" id="network">
+<h2 class="title">Built Around a Partner Network</h2><p class="sub">Rare Reserve does not operate a virtual liquor store in this concept. Licensed shops remain the source of inventory and fulfillment.</p>
+<div class="features">
+<div class="feature"><div class="icon">◇</div><h3>Licensed shops</h3><p>Partner retailers can publish participating products and confirm availability before fulfillment.</p></div>
+<div class="feature"><div class="icon">↗</div><h3>Smart assignment</h3><p>A future backend can route requests to eligible shops and delivery partners based on service area and rules.</p></div>
+<div class="feature"><div class="icon">✓</div><h3>Responsible delivery</h3><p>Age and identity checks should follow applicable law and retailer/delivery-partner requirements.</p></div>
+</div>
+</section>
+
+<section class="section">
+<div class="track"><div><div class="eyebrow">Demo dashboard</div><h2>One request. Three connected parties.</h2><p>Customer → Rare Reserve platform → Licensed partner shop → Delivery partner. This mockup illustrates the operational flow without processing a real purchase.</p><button class="btn" onclick="alert('Demo only: no real order is created.')">Simulate Tracking</button></div>
+<div class="status"><b>Sample request</b><div class="bar"><span></span></div><small>Partner shop confirmed · Delivery partner assignment pending</small></div></div>
+</section>
+
+<section class="section" id="faq">
+<h2 class="title">FAQ</h2><div class="faq">
+<details><summary>Does Rare Reserve own the bottles?</summary><p>No. The concept is a marketplace connecting customers with licensed partner shops. The platform does not maintain virtual inventory.</p></details>
+<details><summary>Will the website collect PAN details?</summary><p>This demo does not collect, upload, store, or validate PAN details. A production implementation would require a compliant age/identity verification provider and appropriate privacy safeguards.</p></details>
+<details><summary>Can I place an order on this demo?</summary><p>No. Product cards and tracking are illustrative only. No checkout, payment, or alcohol purchase is enabled.</p></details>
+</div></section>
+
+<footer><strong class="gold">Rare Reserve</strong><br><br>Academic / startup concept demo · Not a live alcohol marketplace · Availability and delivery are subject to local law, licensing and age restrictions.</footer>
+
+<div class="modal" id="gate"><div class="modalbox"><div class="eyebrow">Age verification concept</div><h2>Before you continue</h2><p>This demo illustrates an age-verification screen. It does not collect or verify your PAN or any other government ID.</p><label class="checks"><input type="checkbox" id="age"> I confirm that I am of legal drinking age in my jurisdiction.</label><button class="btn" onclick="continueGate()">Continue to demo</button><br><button style="margin-top:14px;background:none;border:0;color:#999;cursor:pointer" onclick="closeGate()">Close</button></div></div>
+<script>
+const modal=document.getElementById('gate');
+function openGate(){modal.classList.add('show')}
+function closeGate(){modal.classList.remove('show')}
+function continueGate(){if(document.getElementById('age').checked){closeGate();document.getElementById('collection').scrollIntoView({behavior:'smooth'})}else alert('Please confirm the demo age requirement first.')}
+document.querySelectorAll('.filter').forEach(btn=>btn.addEventListener('click',()=>{
+ document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+ const cat=btn.dataset.cat;document.querySelectorAll('.product').forEach(p=>p.style.display=(cat==='all'||p.dataset.cat===cat)?'block':'none');
+}));
+</script>
+</body>
+</html>
